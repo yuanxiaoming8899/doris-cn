@@ -1,231 +1,178 @@
-<!--
-Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the NOTICE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-
-  http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
--->
-
-<div align="center">
-    <img src="https://doris.apache.org/assets/images/home-banner-7f193353c932af31634eca0a028f03ed.png" align="right" height="240"/>
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text">
+<div align="center" dir="auto">
+    <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/266a8d7fe3fa71c1ef17527727ce39af98673f225ccd17a656064ca3b9e98e65/68747470733a2f2f646f7269732e6170616368652e6f72672f6173736574732f696d616765732f686f6d652d62616e6e65722d37663139333335336339333261663331363334656361306130323866303365642e706e67"><img src="https://camo.githubusercontent.com/266a8d7fe3fa71c1ef17527727ce39af98673f225ccd17a656064ca3b9e98e65/68747470733a2f2f646f7269732e6170616368652e6f72672f6173736574732f696d616765732f686f6d652d62616e6e65722d37663139333335336339333261663331363334656361306130323866303365642e706e67" align="right" height="240" data-canonical-src="https://doris.apache.org/assets/images/home-banner-7f193353c932af31634eca0a028f03ed.png" style="max-width: 100%;"></a>
 </div>
-
-# Apache Doris
-[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
-[![GitHub release](https://img.shields.io/github/release/apache/doris.svg)](https://github.com/apache/doris/releases)
-[![Jenkins Vec](https://img.shields.io/jenkins/tests?compact_message&jobUrl=https://ci-builds.apache.org/job/Doris/job/doris_daily_enable_vectorized&label=VectorizedEngine)](https://ci-builds.apache.org/job/Doris/job/doris_daily_enable_vectorized)
-[![Total Lines](https://tokei.rs/b1/github/apache/doris?category=lines)](https://github.com/apache/doris)
-[![Join the Doris Community at Slack](https://img.shields.io/badge/chat-slack-brightgreen)](https://join.slack.com/t/apachedoriscommunity/shared_invite/zt-28il1o2wk-DD6LsLOz3v4aD92Mu0S0aQ)
-[![Join the chat at https://gitter.im/apache-doris/Lobby](https://badges.gitter.im/apache-doris/Lobby.svg)](https://gitter.im/apache-doris/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![EN doc](https://img.shields.io/badge/Docs-English-blue.svg)](https://doris.apache.org/docs/dev/summary/basic-summary/)
-[![CN doc](https://img.shields.io/badge/文档-中文版-blue.svg)]([https://doris.apache.org/zh-CN/docs/dev/get-starting/what-is-apache-doris](https://doris.apache.org/zh-CN/docs/dev/get-starting/what-is-apache-doris))
-
-Apache Doris is an easy-to-use, high-performance and real-time analytical database based on MPP architecture, known for its extreme speed and ease of use. It only requires a sub-second response time to return query results under massive data and can support not only high-concurrent point query scenarios but also high-throughput complex analysis scenarios.
-
-All this makes Apache Doris an ideal tool for scenarios including report analysis, ad-hoc query, unified data warehouse, and data lake query acceleration. On Apache Doris, users can build various applications, such as user behavior analysis, AB test platform, log retrieval analysis, user portrait analysis, and order analysis.
-
-🎉 Version 2.0.4 released now. Check out the 🔗[Release Notes](https://doris.apache.org/docs/releasenotes/release-2.0.4) here. The 2.0 version has achieved over 10x performance improvements on standard Benchmark, comprehensive enhancement in log analysis and lakehouse scenarios, more efficient and stable data update and write efficiency, support for more comprehensive multi-tenant and resource isolation mechanisms, and take a new step in the direction of resource elasticity and storage computing separation. It has also been added a series of usability features for enterprise users. We welcome all users who have requirements for the new features of the 2.0 version to deploy and upgrade.
-
-🎉 Version 1.2.7 released now! It is fully evolved release and all users are encouraged to upgrade to this release. Check out the 🔗[Release Notes](https://doris.apache.org/docs/releasenotes/release-1.2.7) here. 
-
-👀 Have a look at the 🔗[Official Website](https://doris.apache.org/) for a comprehensive list of Apache Doris's core features, blogs and user cases.
-
-## 📈 Usage Scenarios
-
-As shown in the figure below, after various data integration and processing, the data sources are usually stored in the real-time data warehouse Apache Doris and the offline data lake or data warehouse (in Apache Hive, Apache Iceberg or Apache Hudi).
-
-<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sekvbs5ih5rb16wz6n9k.png">
-
-Apache Doris is widely used in the following scenarios:
-
-- Reporting Analysis
-
-    - Real-time dashboards
-    - Reports for in-house analysts and managers
-    - Highly concurrent user-oriented or customer-oriented report analysis: such as website analysis and ad reporting that usually require thousands of QPS and quick response times measured in milliseconds. A successful user case is that Doris has been used by the Chinese e-commerce giant JD.com in ad reporting, where it receives 10 billion rows of data per day, handles over 10,000 QPS, and delivers a 99 percentile query latency of 150 ms.
-
-- Ad-Hoc Query. Analyst-oriented self-service analytics with irregular query patterns and high throughput requirements. XiaoMi has built a growth analytics platform (Growth Analytics, GA) based on Doris, using user behavior data for business growth analysis, with an average query latency of 10 seconds and a 95th percentile query latency of 30 seconds or less, and tens of thousands of SQL queries per day.
-
-- Unified Data Warehouse Construction. Apache Doris allows users to build a unified data warehouse via one single platform and save the trouble of handling complicated software stacks. Chinese hot pot chain Haidilao has built a unified data warehouse with Doris to replace its old complex architecture consisting of Apache Spark, Apache Hive, Apache Kudu, Apache HBase, and Apache Phoenix.
-
-- Data Lake Query. Apache Doris avoids data copying by federating the data in Apache Hive, Apache Iceberg, and Apache Hudi using external tables, and thus achieves outstanding query performance.
-
-## 🖥️ Core Concepts
-
-### 📂 Architecture of Apache Doris
-
-The overall architecture of Apache Doris is shown in the following figure. The Doris architecture is very simple, with only two types of processes.
-
-- Frontend (FE): user request access, query parsing and planning, metadata management, node management, etc.
-
-- Backend (BE): data storage and query plan execution
-
-Both types of processes are horizontally scalable, and a single cluster can support up to hundreds of machines and tens of petabytes of storage capacity. And these two types of processes guarantee high availability of services and high reliability of data through consistency protocols. This highly integrated architecture design greatly reduces the operation and maintenance cost of a distributed system.
-
-![The overall architecture of Apache Doris](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mnz20ae3s23vv3e9ltmi.png)
-
-In terms of interfaces, Apache Doris adopts MySQL protocol, supports standard SQL, and is highly compatible with MySQL dialect. Users can access Doris through various client tools and it supports seamless connection with BI tools.
-
-### 💾 Storage Engine
-
-Doris uses a columnar storage engine, which encodes, compresses, and reads data by column. This enables a very high compression ratio and largely reduces irrelavant data scans, thus making more efficient use of IO and CPU resources. Doris supports various index structures to minimize data scans:
-
-- Sorted Compound Key Index: Users can specify three columns at most to form a compound sort key. This can effectively prune data to better support highly concurrent reporting scenarios.
-- MIN/MAX Indexing: This enables effective filtering of equivalence and range queries for numeric types.
-- Bloom Filter: very effective in equivalence filtering and pruning of high cardinality columns
-- Invert Index: This enables fast search for any field.
-
-
-### 💿 Storage Models
-
-Doris supports a variety of storage models and has optimized them for different scenarios:
-
-- Aggregate Key Model: able to merge the value columns with the same keys and significantly improve performance
-
-- Unique Key Model: Keys are unique in this model and data with the same key will be overwritten to achieve row-level data updates.
-
-- Duplicate Key Model: This is a detailed data model capable of detailed storage of fact tables.
-
-Doris also supports strongly consistent materialized views. Materialized views are automatically selected and updated, which greatly reduces maintenance costs for users.
-
-### 🔍 Query Engine
-
-Doris adopts the MPP model in its query engine to realize parallel execution between and within nodes. It also supports distributed shuffle join for multiple large tables so as to handle complex queries.
-
-![](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vjlmumwyx728uymsgcw0.png)
-
-The Doris query engine is vectorized, with all memory structures laid out in a columnar format. This can largely reduce virtual function calls, improve cache hit rates, and make efficient use of SIMD instructions. Doris delivers a 5–10 times higher performance in wide table aggregation scenarios than non-vectorized engines.
-
-![](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ck2m3kbnodn28t28vphp.png)
-
-Apache Doris uses Adaptive Query Execution technology to dynamically adjust the execution plan based on runtime statistics. For example, it can generate runtime filter, push it to the probe side, and automatically penetrate it to the Scan node at the bottom, which drastically reduces the amount of data in the probe and increases join performance. The runtime filter in Doris supports In/Min/Max/Bloom filter.
-
-### 🚅 Query Optimizer
-
-In terms of optimizers, Doris uses a combination of CBO and RBO. RBO supports constant folding, subquery rewriting, predicate pushdown and CBO supports Join Reorder. The Doris CBO is under continuous optimization for more accurate statistical information collection and derivation, and more accurate cost model prediction.
-
-
-**Technical Overview**: 🔗[Introduction to Apache Doris](https://doris.apache.org/docs/dev/summary/basic-summary)
-
-## 🎆 Why choose Apache Doris?
-
-- 🎯 **Easy to Use:** Two processes, no other dependencies; online cluster scaling, automatic replica recovery; compatible with MySQL protocol, and using standard SQL.
-
-- 🚀 **High Performance:** Extremely fast performance for low-latency and high-throughput queries with columnar storage engine, modern MPP architecture, vectorized query engine, pre-aggregated materialized view and data index.
-
-- 🖥️ **Single Unified:** A single system can support real-time data serving, interactive data analysis and offline data processing scenarios.
-
-- ⚛️ **Federated Querying:** Supports federated querying of data lakes such as Hive, Iceberg, Hudi, and databases such as MySQL and Elasticsearch.
-
-- ⏩ **Various Data Import Methods:** Supports batch import from HDFS/S3 and stream import from MySQL Binlog/Kafka; supports micro-batch writing through HTTP interface and real-time writing using Insert in JDBC.
-
-- 🚙 **Rich Ecology:** Spark uses Spark-Doris-Connector to read and write Doris; Flink-Doris-Connector enables Flink CDC to implement exactly-once data writing to Doris; DBT Doris Adapter is provided to transform data in Doris with DBT.
-
-## 🙌 Contributors
-
-**Apache Doris has graduated from Apache incubator successfully and become a Top-Level Project in June 2022**. 
-
-Currently, the Apache Doris community has gathered more than 400 contributors from nearly 200 companies in different industries, and the number of active contributors is close to 100 per month.
-
-
-[![Monthly Active Contributors](https://contributor-overtime-api.apiseven.com/contributors-svg?chart=contributorMonthlyActivity&repo=apache/doris)](https://www.apiseven.com/en/contributor-graph?chart=contributorMonthlyActivity&repo=apache/doris)
-
-[![Contributor over time](https://contributor-overtime-api.apiseven.com/contributors-svg?chart=contributorOverTime&repo=apache/doris)](https://www.apiseven.com/en/contributor-graph?chart=contributorOverTime&repo=apache/doris)
-
-We deeply appreciate 🔗[community contributors](https://github.com/apache/doris/graphs/contributors) for their contribution to Apache Doris.
-
-## 👨‍👩‍👧‍👦 Users
-
-Apache Doris now has a wide user base in China and around the world, and as of today, **Apache Doris is used in production environments in thousands of companies worldwide.** More than 80% of the top 50 Internet companies in China in terms of market capitalization or valuation have been using Apache Doris for a long time, including Baidu, Meituan, Xiaomi, Jingdong, Bytedance, Tencent, NetEase, Kwai, Sina, 360, Mihoyo, and Ke Holdings. It is also widely used in some traditional industries such as finance, energy, manufacturing, and telecommunications.
-
-The users of Apache Doris: 🔗[Users](https://doris.apache.org/users)
-
-Add your company logo at Apache Doris Website: 🔗[Add Your Company](https://github.com/apache/doris/discussions/27683)
- 
-## 👣 Get Started
-
-### 📚 Docs
-
-All Documentation   🔗[Docs](https://doris.apache.org/docs/get-starting/quick-start)  
-
-### ⬇️ Download 
-
-All release and binary version 🔗[Download](https://doris.apache.org/download) 
-
-### 🗄️ Compile
-
-See how to compile  🔗[Compilation](https://doris.apache.org/docs/dev/install/source-install/compilation-general)
-
-### 📮 Install
-
-See how to install and deploy 🔗[Installation and deployment](https://doris.apache.org/docs/dev/install/standard-deployment) 
-
-## 🧩 Components
-
-### 📝 Doris Connector
-
-Doris provides support for Spark/Flink to read data stored in Doris through Connector, and also supports to write data to Doris through Connector.
-
-🔗[apache/doris-flink-connector](https://github.com/apache/doris-flink-connector)
-
-🔗[apache/doris-spark-connector](https://github.com/apache/doris-spark-connector)
-
-
-## 🌈 Community and Support
-
-### 📤 Subscribe Mailing Lists
-
-Mail List is the most recognized form of communication in Apache community. See how to 🔗[Subscribe Mailing Lists](https://doris.apache.org/community/subscribe-mail-list)
-
-### 🙋 Report Issues or Submit Pull Request
-
-If you meet any questions, feel free to file a 🔗[GitHub Issue](https://github.com/apache/doris/issues) or post it in 🔗[GitHub Discussion](https://github.com/apache/doris/discussions) and fix it by submitting a 🔗[Pull Request](https://github.com/apache/doris/pulls) 
-
-### 🍻 How to Contribute
-
-We welcome your suggestions, comments (including criticisms), comments and contributions. See 🔗[How to Contribute](https://doris.apache.org/community/how-to-contribute/) and 🔗[Code Submission Guide](https://doris.apache.org/community/how-to-contribute/pull-request/)
-
-### ⌨️ Doris Improvement Proposals (DSIP)
-
-🔗[Doris Improvement Proposal (DSIP)](https://cwiki.apache.org/confluence/display/DORIS/Doris+Improvement+Proposals) can be thought of as **A Collection of Design Documents for all Major Feature Updates or Improvements**.
-
-### 🔑 Backend C++ Coding Specification
-🔗 [Backend C++ Coding Specification](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=240883637) should be strictly followed, which will help us achieve better code quality.
-
-## 💬 Contact Us
-
-Contact us through the following mailing list.
-
-| Name                                                                          | Scope                           |                                                                 |                                                                     |                                                                              |
-|:------------------------------------------------------------------------------|:--------------------------------|:----------------------------------------------------------------|:--------------------------------------------------------------------|:-----------------------------------------------------------------------------|
-| [dev@doris.apache.org](mailto:dev@doris.apache.org)     | Development-related discussions | [Subscribe](mailto:dev-subscribe@doris.apache.org)   | [Unsubscribe](mailto:dev-unsubscribe@doris.apache.org)   | [Archives](http://mail-archives.apache.org/mod_mbox/doris-dev/)   |
-
-## 🧰 Links
-
-* Apache Doris Official Website - [Site](https://doris.apache.org)
-* Developer Mailing list - <dev@doris.apache.org>. Mail to <dev-subscribe@doris.apache.org>, follow the reply to subscribe the mail list.
-* Slack channel - [Join the Slack](https://join.slack.com/t/apachedoriscommunity/shared_invite/zt-28il1o2wk-DD6LsLOz3v4aD92Mu0S0aQ)
-* Twitter - [Follow @doris_apache](https://twitter.com/doris_apache)
-
-
-## 📜 License
-
-[Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
-
-> **Note**
-> Some licenses of the third-party dependencies are not compatible with Apache 2.0 License. So you need to disable
-some Doris features to be complied with Apache 2.0 License. For details, refer to the `thirdparty/LICENSE.txt`
-
-
-
+<h1 tabindex="-1" dir="auto"><a id="user-content-apache-doris" class="anchor" aria-hidden="true" tabindex="-1" href="#apache-doris"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">阿帕奇·多丽丝</font></font></h1>
+<p dir="auto"><a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="nofollow"><img src="https://camo.githubusercontent.com/3e787ad45f0862131e82fe26cfdf93deb2c5fbdd320f047942fa916088cc716e/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d417061636865253230322d3445423142412e737667" alt="执照" data-canonical-src="https://img.shields.io/badge/license-Apache%202-4EB1BA.svg" style="max-width: 100%;"></a>
+<a href="https://github.com/apache/doris/releases"><img src="https://camo.githubusercontent.com/736e34b218919bdd46d78f2b582940d935bf6528956d48d0630a074266e93144/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f72656c656173652f6170616368652f646f7269732e737667" alt="GitHub 发布" data-canonical-src="https://img.shields.io/github/release/apache/doris.svg" style="max-width: 100%;"></a>
+<a href="https://ci-builds.apache.org/job/Doris/job/doris_daily_enable_vectorized" rel="nofollow"><img src="https://camo.githubusercontent.com/ceaf6a35bda518b017ebbe3afa8fc0f53608e75f376145aca6b21718a7206c38/68747470733a2f2f696d672e736869656c64732e696f2f6a656e6b696e732f74657374733f636f6d706163745f6d657373616765266a6f6255726c3d68747470733a2f2f63692d6275696c64732e6170616368652e6f72672f6a6f622f446f7269732f6a6f622f646f7269735f6461696c795f656e61626c655f766563746f72697a6564266c6162656c3d566563746f72697a6564456e67696e65" alt="詹金斯·维克" data-canonical-src="https://img.shields.io/jenkins/tests?compact_message&amp;jobUrl=https://ci-builds.apache.org/job/Doris/job/doris_daily_enable_vectorized&amp;label=VectorizedEngine" style="max-width: 100%;"></a>
+<a href="https://github.com/apache/doris"><img src="https://camo.githubusercontent.com/cc197b4c9ce8e8be4c9b41231a0de6974b92818d7fc87bc1434cd4a10dd7d93d/68747470733a2f2f746f6b65692e72732f62312f6769746875622f6170616368652f646f7269733f63617465676f72793d6c696e6573" alt="总行数" data-canonical-src="https://tokei.rs/b1/github/apache/doris?category=lines" style="max-width: 100%;"></a>
+<a href="https://join.slack.com/t/apachedoriscommunity/shared_invite/zt-28il1o2wk-DD6LsLOz3v4aD92Mu0S0aQ" rel="nofollow"><img src="https://camo.githubusercontent.com/7cc49bda4d2c8fa11f609ed8851cd4ca4ccc553aea054433fb7e99de63daa5bf/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636861742d736c61636b2d627269676874677265656e" alt="加入 Slack 的 Doris 社区" data-canonical-src="https://img.shields.io/badge/chat-slack-brightgreen" style="max-width: 100%;"></a>
+<a href="https://gitter.im/apache-doris/Lobby?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge" rel="nofollow"><img src="https://camo.githubusercontent.com/48cb22168623e64e015141c69363279133cb6510880d89ff6fa9a4bd3dfae122/68747470733a2f2f6261646765732e6769747465722e696d2f6170616368652d646f7269732f4c6f6262792e737667" alt="加入聊天：https://gitter.im/apache-doris/Lobby" data-canonical-src="https://badges.gitter.im/apache-doris/Lobby.svg" style="max-width: 100%;"></a>
+<a href="https://doris.apache.org/docs/dev/summary/basic-summary/" rel="nofollow"><img src="https://camo.githubusercontent.com/261c7ce1f003af51796203d093be161dddb2dec3c7626d8e157d62cbd2a0a5d7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f63732d456e676c6973682d626c75652e737667" alt="中文文档" data-canonical-src="https://img.shields.io/badge/Docs-English-blue.svg" style="max-width: 100%;"></a>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/34e819ec0b3515182844681ba9d42b5f4a05334af3b6abd47b5f367ce09f6ab9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2545362539362538372545362541312541332d2545342542382541442545362539362538372545372538392538382d626c75652e737667"><img src="https://camo.githubusercontent.com/34e819ec0b3515182844681ba9d42b5f4a05334af3b6abd47b5f367ce09f6ab9/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2545362539362538372545362541312541332d2545342542382541442545362539362538372545372538392538382d626c75652e737667" alt="中文文档" data-canonical-src="https://img.shields.io/badge/%E6%96%87%E6%A1%A3-%E4%B8%AD%E6%96%87%E7%89%88-blue.svg" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apache Doris 是一个基于 MPP 架构的易于使用、高性能、实时分析的数据库，以其极快的速度和易用性而闻名。</font><font style="vertical-align: inherit;">海量数据下仅需亚秒级响应时间即可返回查询结果，不仅可以支持高并发的点查询场景，还可以支持高吞吐量的复杂分析场景。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这一切使得 Apache Doris 成为报表分析、即席查询、统一数据仓库、数据湖查询加速等场景的理想工具。</font><font style="vertical-align: inherit;">在Apache Doris上，用户可以构建各种应用，例如用户行为分析、AB测试平台、日志检索分析、用户画像分析、订单分析等。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🎉 2.0.4 版本现已发布。</font><font style="vertical-align: inherit;">请在此处查看 🔗</font></font><a href="https://doris.apache.org/docs/releasenotes/release-2.0.4" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发行说明</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">2.0版本较标准Benchmark实现了10倍以上的性能提升，在日志分析和Lakehouse场景方面全面增强，数据更新和写入效率更加高效稳定，支持更全面的多租户和资源隔离机制，在性能上迈出了新的一步。资源弹性和存储计算分离的方向。</font><font style="vertical-align: inherit;">它还为企业用户添加了一系列易用性功能。</font><font style="vertical-align: inherit;">欢迎所有对2.0版本新功能有需求的用户进行部署和升级。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🎉 1.2.7版本现已发布！</font><font style="vertical-align: inherit;">它是完全进化的版本，鼓励所有用户升级到此版本。</font><font style="vertical-align: inherit;">请在此处查看 🔗</font></font><a href="https://doris.apache.org/docs/releasenotes/release-1.2.7" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发行说明</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">👀 请访问 🔗</font></font><a href="https://doris.apache.org/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">官方网站，</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">获取 Apache Doris 核心功能、博客和用户案例的完整列表。</font></font></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content--usage-scenarios" class="anchor" aria-hidden="true" tabindex="-1" href="#-usage-scenarios"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">📈 使用场景</font></font></h2>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如下图所示，经过各种数据整合和处理后，数据源通常存储在实时数据仓库Apache Doris和离线数据湖或数据仓库（在Apache Hive、Apache Iceberg或Apache Hudi中）中。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/326f65871321ce8f359612645cd3b19af79926f29e17973d111b84156ad0eff3/68747470733a2f2f6465762d746f2d75706c6f6164732e73332e616d617a6f6e6177732e636f6d2f75706c6f6164732f61727469636c65732f73656b7662733569683572623136777a366e396b2e706e67"><img src="https://camo.githubusercontent.com/326f65871321ce8f359612645cd3b19af79926f29e17973d111b84156ad0eff3/68747470733a2f2f6465762d746f2d75706c6f6164732e73332e616d617a6f6e6177732e636f6d2f75706c6f6164732f61727469636c65732f73656b7662733569683572623136777a366e396b2e706e67" data-canonical-src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sekvbs5ih5rb16wz6n9k.png" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apache Doris广泛应用于以下场景：</font></font></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">报告分析</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实时仪表板</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为内部分析师和经理提供的报告</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高并发的面向用户或客户的报表分析：例如网站分析和广告报表，通常需要数千的QPS和毫秒级的快速响应时间。</font><font style="vertical-align: inherit;">一个成功的用户案例是，中国电子商务巨头京东在广告报告中使用了 Doris，每天接收 100 亿行数据，处理超过 10,000 QPS，并提供 150 毫秒的 99% 查询延迟。</font></font></li>
+</ul>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">即席查询。</font><font style="vertical-align: inherit;">面向分析师的自助分析，具有不规则查询模式和高吞吐量要求。</font><font style="vertical-align: inherit;">小米基于Doris构建了增长分析平台（Growth Analytics，GA），利用用户行为数据进行业务增长分析，平均查询延迟为10秒，95%查询延迟为30秒或更短，上万个每天的 SQL 查询数。</font></font></p>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">统一数据仓库建设。</font><font style="vertical-align: inherit;">Apache Doris 允许用户通过一个平台构建统一的数据仓库，省去处理复杂软件堆栈的麻烦。</font><font style="vertical-align: inherit;">中国火锅连锁店海底捞与 Doris 建立了统一的数据仓库，以取代由 Apache Spark、Apache Hive、Apache Kudu、Apache HBase 和 Apache Phoenix 组成的旧的复杂架构。</font></font></p>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数据湖查询。</font><font style="vertical-align: inherit;">Apache Doris通过外部表联合Apache Hive、Apache Iceberg和Apache Hudi中的数据，避免了数据复制，从而获得了出色的查询性能。</font></font></p>
+</li>
+</ul>
+<h2 tabindex="-1" dir="auto"><a id="user-content-️-core-concepts" class="anchor" aria-hidden="true" tabindex="-1" href="#️-core-concepts"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🖥️核心概念</font></font></h2>
+<h3 tabindex="-1" dir="auto"><a id="user-content--architecture-of-apache-doris" class="anchor" aria-hidden="true" tabindex="-1" href="#-architecture-of-apache-doris"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">📂 Apache Doris 的架构</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apache Doris的整体架构如下图所示。</font><font style="vertical-align: inherit;">Doris架构非常简单，只有两类进程。</font></font></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">前端（FE）：用户请求访问、查询解析和规划、元数据管理、节点管理等。</font></font></p>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">后端（BE）：数据存储和查询计划执行</font></font></p>
+</li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">两种类型的进程都可以水平扩展，单个集群可以支持多达数百台机器和数十PB的存储容量。</font><font style="vertical-align: inherit;">而这两类流程通过一致性协议保证了服务的高可用性和数据的高可靠性。</font><font style="vertical-align: inherit;">这种高度集成的架构设计大大降低了分布式系统的运维成本。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d345c4dcb84ff888475572f16f9a87d31d35d6d3199d4984680286b1342c6709/68747470733a2f2f6465762d746f2d75706c6f6164732e73332e616d617a6f6e6177732e636f6d2f75706c6f6164732f61727469636c65732f6d6e7a323061653373323376763365396c746d692e706e67"><img src="https://camo.githubusercontent.com/d345c4dcb84ff888475572f16f9a87d31d35d6d3199d4984680286b1342c6709/68747470733a2f2f6465762d746f2d75706c6f6164732e73332e616d617a6f6e6177732e636f6d2f75706c6f6164732f61727469636c65732f6d6e7a323061653373323376763365396c746d692e706e67" alt="Apache Doris整体架构" data-canonical-src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mnz20ae3s23vv3e9ltmi.png" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">接口方面，Apache Doris采用MySQL协议，支持标准SQL，与MySQL方言高度兼容。</font><font style="vertical-align: inherit;">用户可以通过各种客户端工具访问Doris，并且支持与BI工具无缝连接。</font></font></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content--storage-engine" class="anchor" aria-hidden="true" tabindex="-1" href="#-storage-engine"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">💾 存储引擎</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Doris 使用列式存储引擎，按列编码、压缩和读取数据。</font><font style="vertical-align: inherit;">这样可以实现非常高的压缩比，并大大减少不相关的数据扫描，从而更有效地利用 IO 和 CPU 资源。</font><font style="vertical-align: inherit;">Doris 支持各种索引结构以最大程度地减少数据扫描：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">排序复合键索引：用户最多可以指定三列来组成复合排序键。</font><font style="vertical-align: inherit;">这可以有效地修剪数据，以更好地支持高度并发的报告场景。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MIN/MAX 索引：这可以有效过滤数字类型的等价和范围查询。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">布隆过滤器：在高基数列的等价过滤和剪枝方面非常有效</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">反向索引：这可以快速搜索任何字段。</font></font></li>
+</ul>
+<h3 tabindex="-1" dir="auto"><a id="user-content--storage-models" class="anchor" aria-hidden="true" tabindex="-1" href="#-storage-models"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">💿 存储模型</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Doris支持多种存储模型，并针对不同场景进行了优化：</font></font></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">聚合键模型：能够合并具有相同键的值列并显着提高性能</font></font></p>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">唯一键模型：该模型中的键是唯一的，相同键的数据将被覆盖，以实现行级数据更新。</font></font></p>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">重复键模型：这是一个详细的数据模型，能够详细存储事实表。</font></font></p>
+</li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Doris 还支持高度一致的物化视图。</font><font style="vertical-align: inherit;">物化视图自动选择和更新，大大降低了用户的维护成本。</font></font></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content--query-engine" class="anchor" aria-hidden="true" tabindex="-1" href="#-query-engine"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🔍 查询引擎</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Doris在其查询引擎中采用MPP模型来实现节点之间和节点内的并行执行。</font><font style="vertical-align: inherit;">它还支持多个大表的分布式shuffle join，以处理复杂的查询。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9e1689393d4c6f2e4f4220e16cb5f17f8096cc2792a571773e6fd19ddeb61f97/68747470733a2f2f6465762d746f2d75706c6f6164732e73332e616d617a6f6e6177732e636f6d2f75706c6f6164732f61727469636c65732f766a6c6d756d77797837323875796d73676377302e706e67"><img src="https://camo.githubusercontent.com/9e1689393d4c6f2e4f4220e16cb5f17f8096cc2792a571773e6fd19ddeb61f97/68747470733a2f2f6465762d746f2d75706c6f6164732e73332e616d617a6f6e6177732e636f6d2f75706c6f6164732f61727469636c65732f766a6c6d756d77797837323875796d73676377302e706e67" alt="" data-canonical-src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/vjlmumwyx728uymsgcw0.png" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Doris 查询引擎是矢量化的，所有内存结构都以柱状格式排列。</font><font style="vertical-align: inherit;">这可以很大程度上减少虚拟函数调用，提高缓存命中率，并有效利用SIMD指令。</font><font style="vertical-align: inherit;">Doris 在宽表聚合场景中的性能比非矢量化引擎高 5-10 倍。</font></font></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/275b7aec0e3c4e115bdedc9a13eb13647da3c0617a1e3ea8296a0318f19bfa39/68747470733a2f2f6465762d746f2d75706c6f6164732e73332e616d617a6f6e6177732e636f6d2f75706c6f6164732f61727469636c65732f636b326d336b626e6f646e3238743238767068702e706e67"><img src="https://camo.githubusercontent.com/275b7aec0e3c4e115bdedc9a13eb13647da3c0617a1e3ea8296a0318f19bfa39/68747470733a2f2f6465762d746f2d75706c6f6164732e73332e616d617a6f6e6177732e636f6d2f75706c6f6164732f61727469636c65732f636b326d336b626e6f646e3238743238767068702e706e67" alt="" data-canonical-src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ck2m3kbnodn28t28vphp.png" style="max-width: 100%;"></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apache Doris 使用自适应查询执行技术根据运行时统计信息动态调整执行计划。</font><font style="vertical-align: inherit;">例如，它可以生成运行时过滤器，将其推送到探针端，并自动穿透到底部的Scan节点，从而大大减少探针中的数据量并提高连接性能。</font><font style="vertical-align: inherit;">Doris中的运行时过滤器支持In/Min/Max/Bloom过滤器。</font></font></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content--query-optimizer" class="anchor" aria-hidden="true" tabindex="-1" href="#-query-optimizer"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🚅 查询优化器</font></font></h3>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在优化器方面，Doris采用了CBO和RBO的组合。</font><font style="vertical-align: inherit;">RBO支持常量折叠、子查询重写、谓词下推，CBO支持Join Reorder。</font><font style="vertical-align: inherit;">Doris CBO正在不断优化，以实现更准确的统计信息收集和推导，以及更准确的成本模型预测。</font></font></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">技术概述</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：🔗 </font></font><a href="https://doris.apache.org/docs/dev/summary/basic-summary" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apache Doris 简介</font></font></a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content--why-choose-apache-doris" class="anchor" aria-hidden="true" tabindex="-1" href="#-why-choose-apache-doris"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🎆 为什么选择 Apache Doris？</font></font></h2>
+<ul dir="auto">
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🎯</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">易于使用：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">两个进程，无其他依赖；</font><font style="vertical-align: inherit;">在线集群扩展、自动副本恢复；</font><font style="vertical-align: inherit;">兼容MySQL协议，使用标准SQL。</font></font></p>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🚀</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高性能：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过列式存储引擎、现代 MPP 架构、矢量化查询引擎、预聚合物化视图和数据索引，实现低延迟和高吞吐量查询的极快性能。</font></font></p>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🖥️</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">单一统一：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">单一系统可以支持实时数据服务、交互式数据分析和离线数据处理场景。</font></font></p>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">⚛️</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">联邦查询：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持Hive、Iceberg、Hudi等数据湖和MySQL、Elasticsearch等数据库的联邦查询。</font></font></p>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">⏩</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">丰富的数据导入方式：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持从HDFS/S3批量导入、从MySQL Binlog/Kafka流式导入；</font><font style="vertical-align: inherit;">支持通过HTTP接口进行微批量写入，支持通过JDBC中的Insert进行实时写入。</font></font></p>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🚙</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">生态丰富：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Spark使用Spark-Doris-Connector读写Doris；</font><font style="vertical-align: inherit;">Flink-Doris-Connector 使 Flink CDC 能够实现对 Doris 的一次性数据写入；</font><font style="vertical-align: inherit;">提供 DBT Doris Adapter，用于通过 DBT 转换 Doris 中的数据。</font></font></p>
+</li>
+</ul>
+<h2 tabindex="-1" dir="auto"><a id="user-content--contributors" class="anchor" aria-hidden="true" tabindex="-1" href="#-contributors"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🙌 贡献者</font></font></h2>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apache Doris 已成功从 Apache 孵化器毕业，并于 2022 年 6 月成为顶级项目</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto">Currently, the Apache Doris community has gathered more than 400 contributors from nearly 200 companies in different industries, and the number of active contributors is close to 100 per month.</p>
+<p dir="auto"><a href="https://www.apiseven.com/en/contributor-graph?chart=contributorMonthlyActivity&amp;repo=apache/doris" rel="nofollow"><img src="https://camo.githubusercontent.com/b8fa80f50309510129f973918833a5981b011f0df34668da4525555c75ca023c/68747470733a2f2f636f6e7472696275746f722d6f76657274696d652d6170692e617069736576656e2e636f6d2f636f6e7472696275746f72732d7376673f63686172743d636f6e7472696275746f724d6f6e74686c794163746976697479267265706f3d6170616368652f646f726973" alt="每月活跃贡献者" data-canonical-src="https://contributor-overtime-api.apiseven.com/contributors-svg?chart=contributorMonthlyActivity&amp;repo=apache/doris" style="max-width: 100%;"></a></p>
+<p dir="auto"><a href="https://www.apiseven.com/en/contributor-graph?chart=contributorOverTime&amp;repo=apache/doris" rel="nofollow"><img src="https://camo.githubusercontent.com/b822c2186dc97668f35ca7255bccdbd82c4234ef367c0960ae7e48b6d0566f59/68747470733a2f2f636f6e7472696275746f722d6f76657274696d652d6170692e617069736576656e2e636f6d2f636f6e7472696275746f72732d7376673f63686172743d636f6e7472696275746f724f76657254696d65267265706f3d6170616368652f646f726973" alt="随着时间的推移贡献者" data-canonical-src="https://contributor-overtime-api.apiseven.com/contributors-svg?chart=contributorOverTime&amp;repo=apache/doris" style="max-width: 100%;"></a></p>
+<p dir="auto">We deeply appreciate 🔗<a href="https://github.com/apache/doris/graphs/contributors">community contributors</a> for their contribution to Apache Doris.</p>
+<h2 tabindex="-1" dir="auto"><a id="user-content--users" class="anchor" aria-hidden="true" tabindex="-1" href="#-users"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>👨&zwj;👩&zwj;👧&zwj;👦 Users</h2>
+<p dir="auto">Apache Doris now has a wide user base in China and around the world, and as of today, <strong>Apache Doris is used in production environments in thousands of companies worldwide.</strong> More than 80% of the top 50 Internet companies in China in terms of market capitalization or valuation have been using Apache Doris for a long time, including Baidu, Meituan, Xiaomi, Jingdong, Bytedance, Tencent, NetEase, Kwai, Sina, 360, Mihoyo, and Ke Holdings. It is also widely used in some traditional industries such as finance, energy, manufacturing, and telecommunications.</p>
+<p dir="auto">The users of Apache Doris: 🔗<a href="https://doris.apache.org/users" rel="nofollow">Users</a></p>
+<p dir="auto">Add your company logo at Apache Doris Website: 🔗<a href="https://github.com/apache/doris/discussions/27683" data-hovercard-type="discussion" data-hovercard-url="/apache/doris/discussions/27683/hovercard">Add Your Company</a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content--get-started" class="anchor" aria-hidden="true" tabindex="-1" href="#-get-started"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>👣 Get Started</h2>
+<h3 tabindex="-1" dir="auto"><a id="user-content--docs" class="anchor" aria-hidden="true" tabindex="-1" href="#-docs"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>📚 Docs</h3>
+<p dir="auto">All Documentation   🔗<a href="https://doris.apache.org/docs/get-starting/quick-start" rel="nofollow">Docs</a></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-️-download" class="anchor" aria-hidden="true" tabindex="-1" href="#️-download"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>⬇️ Download</h3>
+<p dir="auto">All release and binary version 🔗<a href="https://doris.apache.org/download" rel="nofollow">Download</a></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-️-compile" class="anchor" aria-hidden="true" tabindex="-1" href="#️-compile"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>🗄️ Compile</h3>
+<p dir="auto">See how to compile  🔗<a href="https://doris.apache.org/docs/dev/install/source-install/compilation-general" rel="nofollow">Compilation</a></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content--install" class="anchor" aria-hidden="true" tabindex="-1" href="#-install"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>📮 Install</h3>
+<p dir="auto">See how to install and deploy 🔗<a href="https://doris.apache.org/docs/dev/install/standard-deployment" rel="nofollow">Installation and deployment</a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content--components" class="anchor" aria-hidden="true" tabindex="-1" href="#-components"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>🧩 Components</h2>
+<h3 tabindex="-1" dir="auto"><a id="user-content--doris-connector" class="anchor" aria-hidden="true" tabindex="-1" href="#-doris-connector"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>📝 Doris Connector</h3>
+<p dir="auto">Doris provides support for Spark/Flink to read data stored in Doris through Connector, and also supports to write data to Doris through Connector.</p>
+<p dir="auto">🔗<a href="https://github.com/apache/doris-flink-connector">apache/doris-flink-connector</a></p>
+<p dir="auto">🔗<a href="https://github.com/apache/doris-spark-connector">apache/doris-spark-connector</a></p>
+<h2 tabindex="-1" dir="auto"><a id="user-content--community-and-support" class="anchor" aria-hidden="true" tabindex="-1" href="#-community-and-support"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>🌈 Community and Support</h2>
+<h3 tabindex="-1" dir="auto"><a id="user-content--subscribe-mailing-lists" class="anchor" aria-hidden="true" tabindex="-1" href="#-subscribe-mailing-lists"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>📤 Subscribe Mailing Lists</h3>
+<p dir="auto">Mail List is the most recognized form of communication in Apache community. See how to 🔗<a href="https://doris.apache.org/community/subscribe-mail-list" rel="nofollow">Subscribe Mailing Lists</a></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content--report-issues-or-submit-pull-request" class="anchor" aria-hidden="true" tabindex="-1" href="#-report-issues-or-submit-pull-request"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>🙋 Report Issues or Submit Pull Request</h3>
+<p dir="auto">If you meet any questions, feel free to file a 🔗<a href="https://github.com/apache/doris/issues">GitHub Issue</a> or post it in 🔗<a href="https://github.com/apache/doris/discussions">GitHub Discussion</a> and fix it by submitting a 🔗<a href="https://github.com/apache/doris/pulls">Pull Request</a></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content--how-to-contribute" class="anchor" aria-hidden="true" tabindex="-1" href="#-how-to-contribute"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>🍻 How to Contribute</h3>
+<p dir="auto">We welcome your suggestions, comments (including criticisms), comments and contributions. See 🔗<a href="https://doris.apache.org/community/how-to-contribute/" rel="nofollow">How to Contribute</a> and 🔗<a href="https://doris.apache.org/community/how-to-contribute/pull-request/" rel="nofollow">Code Submission Guide</a></p>
+<h3 tabindex="-1" dir="auto"><a id="user-content-️-doris-improvement-proposals-dsip" class="anchor" aria-hidden="true" tabindex="-1" href="#️-doris-improvement-proposals-dsip"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>⌨️ Doris Improvement Proposals (DSIP)</h3>
+<p dir="auto">🔗<a href="https://cwiki.apache.org/confluence/display/DORIS/Doris+Improvement+Proposals" rel="nofollow">Doris Improvement Proposal (DSIP)</a> can be thought of as <strong>A Collection of Design Documents for all Major Feature Updates or Improvements</strong>.</p>
+<h3 tabindex="-1" dir="auto"><a id="user-content--backend-c-coding-specification" class="anchor" aria-hidden="true" tabindex="-1" href="#-backend-c-coding-specification"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>🔑 Backend C++ Coding Specification</h3>
+<p dir="auto">🔗 <a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=240883637" rel="nofollow">Backend C++ Coding Specification</a> should be strictly followed, which will help us achieve better code quality.</p>
+<h2 tabindex="-1" dir="auto"><a id="user-content--contact-us" class="anchor" aria-hidden="true" tabindex="-1" href="#-contact-us"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>💬 Contact Us</h2>
+<p dir="auto">Contact us through the following mailing list.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Scope</th>
+<th align="left"></th>
+<th align="left"></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="mailto:dev@doris.apache.org">dev@doris.apache.org</a></td>
+<td align="left">Development-related discussions</td>
+<td align="left"><a href="mailto:dev-subscribe@doris.apache.org">Subscribe</a></td>
+<td align="left"><a href="mailto:dev-unsubscribe@doris.apache.org">Unsubscribe</a></td>
+<td align="left"><a href="http://mail-archives.apache.org/mod_mbox/doris-dev/" rel="nofollow">Archives</a></td>
+</tr>
+</tbody>
+</table>
+<h2 tabindex="-1" dir="auto"><a id="user-content--links" class="anchor" aria-hidden="true" tabindex="-1" href="#-links"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>🧰 Links</h2>
+<ul dir="auto">
+<li>Apache Doris Official Website - <a href="https://doris.apache.org" rel="nofollow">Site</a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发人员邮件列表 - </font></font><a href="mailto:dev@doris.apache.org"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">dev@doris.apache.org</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">发送邮件至</font></font><a href="mailto:dev-subscribe@doris.apache.org"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">dev-subscribe@doris.apache.org</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，按照回复订阅邮件列表。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Slack 频道 -</font></font><a href="https://join.slack.com/t/apachedoriscommunity/shared_invite/zt-28il1o2wk-DD6LsLOz3v4aD92Mu0S0aQ" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加入 Slack</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Twitter -</font></font><a href="https://twitter.com/doris_apache" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关注@doris_apache</font></font></a></li>
+</ul>
+<h2 tabindex="-1" dir="auto"><a id="user-content--license" class="anchor" aria-hidden="true" tabindex="-1" href="#-license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">📜 许可证</font></font></h2>
+<p dir="auto"><a href="https://www.apache.org/licenses/LICENSE-2.0" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apache 许可证，版本 2.0</font></font></a></p>
+<blockquote>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+第三方依赖项的某些许可证与 Apache 2.0 许可证不兼容。</font><font style="vertical-align: inherit;">因此，您需要禁用一些 Doris 功能才能遵守 Apache 2.0 许可证。</font><font style="vertical-align: inherit;">有关详细信息，请参阅</font></font><code>thirdparty/LICENSE.txt</code></p>
+</blockquote>
+</article></div>
